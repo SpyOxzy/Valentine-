@@ -1,11 +1,21 @@
-let currentSlide = 0;
+let currentPage = 0;
+const pages = document.querySelectorAll('.page');
 
-function moveSlide(direction) {
-    const slides = document.querySelectorAll('.carousel-images img');
-    currentSlide = (currentSlide + direction + slides.length) % slides.length;
-    const offset = -currentSlide * 100;
-    document.querySelector('.carousel-images').style.transform = `translateX(${offset}%)`;
+function showPage(index) {
+    pages.forEach((page, i) => {
+        page.style.transform = `translateX(${(i - index) * 100}%)`;
+    });
 }
 
-// Initialize the carousel
-moveSlide(0);
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowRight') {
+        currentPage = (currentPage + 1) % pages.length;
+        showPage(currentPage);
+    } else if (event.key === 'ArrowLeft') {
+        currentPage = (currentPage - 1 + pages.length) % pages.length;
+        showPage(currentPage);
+    }
+});
+
+// Initialize the flipbook
+showPage(currentPage);
