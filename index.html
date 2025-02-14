@@ -111,15 +111,15 @@
         const nextPageUrl = 'main.html'; // Replace with the URL of the new page
 
         form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const userInput = codeInput.value.trim();
-            if (userInput === secretCode) {
-                resultDiv.innerHTML = 'Baby';
-                window.location.href = nextPageUrl; // Redirect to new page
-            } else {
-                resultDiv.innerHTML = 'Type our secret code';
-            }
-        });
+    e.preventDefault();
+    const userInput = codeInput.value.trim().toLowerCase(); // Trim and convert to lowercase
+    if (userInput === secretCode.toLowerCase()) { // Convert secret code to lowercase for comparison
+        resultDiv.innerHTML = 'Baby';
+        window.location.href = nextPageUrl; // Redirect to new page
+    } else {
+        resultDiv.innerHTML = 'Type our secret code';
+    }
+});
 
         // Function to create falling emojis
         function createFallingEmoji() {
