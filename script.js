@@ -8,11 +8,11 @@ const nextPageUrl = 'main.html'; // Replace with the URL of the new page
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const userInput = codeInput.value.trim();
+    const userInput = codeInput.value.trim().toLowerCase();
     if (userInput === secretCode) {
         resultDiv.innerHTML = 'Baby';
         window.location.href = nextPageUrl; // Redirect to new page
     } else {
-        resultDiv.innerHTML = 'Naa Tum meri baby nhi hoo kon hooo tum kaha hai meri sona';
+        resultDiv.innerHTML = 'Type Our secret Code';
     }
 });
