@@ -113,7 +113,7 @@
         form.addEventListener('submit', (e) => {
     e.preventDefault();
     const userInput = codeInput.value.trim().toLowerCase(); // Trim and convert to lowercase
-    if (userInput === secretCode.toLowerCase()) { // Convert secret code to lowercase for comparison
+    if (userInput === secretCode) {
         resultDiv.innerHTML = 'Baby';
         window.location.href = nextPageUrl; // Redirect to new page
     } else {
